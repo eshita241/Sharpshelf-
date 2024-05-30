@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../../components/dashboard/Navbar'
 
 export default function Layout
 ({children}) {
@@ -8,6 +9,7 @@ export default function Layout
             sidebar
         </div>
         <main className='w-full min-h-screen'>
+            <Navbar/>
             {children} 
         </main>
     </div>
