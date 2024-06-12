@@ -1,12 +1,16 @@
 import React from 'react';
 import { TbHistoryToggle } from "react-icons/tb";
-import { IoSearch } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
+import { IoSearch,IoSettingsOutline } from "react-icons/io5";
+import { FaPlus, FaUserGroup  } from "react-icons/fa6";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { GoChevronDown } from "react-icons/go";
+import { TfiLayoutGrid3Alt } from "react-icons/tfi";
+
 
 
 export default function Navbar() {
   return (
-    <div className=' bg-slate-300 h-14 flex items-center justify-between px-7'>
+    <div className=' bg-slate-300 h-14 flex items-center justify-between px-7 border-b border-slate-200 shadow-lg'>
         <div className='flex gap-5'>
           <button><TbHistoryToggle size={34} className=''/></button>
           
@@ -31,17 +35,19 @@ export default function Navbar() {
 </form>
 
         </div>
-        <div>
+        <div className='flex gap-5'>
         
-        <button data-tooltip-target="tooltip-dark" type="button" class="ms-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><FaPlus size={20} classNameName="cursor-pointer" /></button>
-
-<div id="tooltip-dark" role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
-    Tooltip content
-    <div className="tooltip-arrow" data-popper-arrow></div>
-</div>
-        
-
+        <button type="button" class="ms-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><FaPlus size={20} classNameName="cursor-pointer" /></button>
+        <button><IoMdNotificationsOutline size={25} /></button>
+        <button><FaUserGroup size={24.5}/></button>
+        <button><IoSettingsOutline size={25} /></button>
+        <button className='flex gap-1 border-2 justify-center items-center px-2'><span>Garat</span>
+        <GoChevronDown/></button>
+        {/*User Image*/}
+        <button><TfiLayoutGrid3Alt size={24}/>
+        </button>
         </div>
+        
     </div>
   )
 }

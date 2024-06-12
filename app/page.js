@@ -9,6 +9,5 @@ export default function Home() {
     <Link href="/dashboard/home/getting-started">Lets get started</Link>
     <Link href="/dashboard/home/updates">You get all the updates here</Link>
     </div>
-    
   );
 }
