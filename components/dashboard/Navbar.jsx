@@ -5,6 +5,7 @@ import { FaPlus, FaUserGroup  } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { GoChevronDown } from "react-icons/go";
 import { TfiLayoutGrid3Alt } from "react-icons/tfi";
+import  Link  from "next/link"
 
 
 
@@ -37,7 +38,8 @@ export default function Navbar() {
         </div>
         <div className='flex gap-5'>
         
-        <button type="button" class="ms-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><FaPlus size={20} classNameName="cursor-pointer" /></button>
+        
+        <button type="button" class="ms-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><Link href="dashboard/inventory"><FaPlus size={20} classNameName="cursor-pointer" /></Link></button>
         <button><IoMdNotificationsOutline size={25} /></button>
         <button><FaUserGroup size={24.5}/></button>
         <button><IoSettingsOutline size={25} /></button>
