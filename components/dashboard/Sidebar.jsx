@@ -7,9 +7,9 @@ import { GoChevronLeft } from "react-icons/go";
 export default function Sidebar(){
     let LinkDat = [
         {name: "Home", link:"/dashboard/home/overview"},
-        {name: "Inventory", link:"/dashboard/home/announcements"},
-        {name: "Sales", link:"/dashboard/home/overview"},
-        {name: "Purchases", link:"/dashboard/home/getting-started"},
+        {name: "Inventory", link:"/dashboard/inventory"},
+        {name: "Attendance", link:"/dashboard/home/overview"},
+        {name: "Production", link:"/dashboard/home/getting-started"},
     ]
     return (
             <div className='w-56 min-h-screen bg-slate-900 text-slate-200'>

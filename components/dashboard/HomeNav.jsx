@@ -7,9 +7,9 @@ export default function HomeNav(){
     const pathname = usePathname();
     let LinkData = [
         {name: "Home", link:"/dashboard/home/overview"},
-        {name: "Getting Started", link:"/dashboard/home/getting-started"},
-        {name: "Recent Updates", link:"/dashboard/home/updates"},
-        {name: "Announcements", link:"/dashboard/home/announcements"},
+        {name: "Inventory", link:"/dashboard/inventory"},
+        {name: "Attendance", link:"/dashboard/home/overview"},
+        {name: "Production", link:"/dashboard/home/getting-started"},
     ]
     return (
         <div className=" text-slate-950">
@@ -23,7 +23,6 @@ export default function HomeNav(){
                     </li></Link>
                             ))
                         }
-                    
                     </ul>
                 </nav>
             </div>
