@@ -8,8 +8,8 @@ export default function HomeNav(){
     let LinkData = [
         {name: "Home", link:"/dashboard/home/overview"},
         {name: "Inventory", link:"/dashboard/inventory"},
-        {name: "Attendance", link:"/dashboard/home/overview"},
-        {name: "Production", link:"/dashboard/home/getting-started"},
+        {name: "Attendance", link:"/dashboard/attendance"},
+        {name: "Production", link:"/dashboard/production"},
     ]
     return (
         <div className=" text-slate-950">
