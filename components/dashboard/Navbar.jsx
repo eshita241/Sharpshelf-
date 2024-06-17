@@ -11,7 +11,7 @@ import  Link  from "next/link"
 
 export default function Navbar() {
   return (
-    <div className=' bg-slate-300 h-14 flex items-center justify-between px-7 border-b border-slate-200 shadow-lg'>
+    <div className=' z-20 bg-slate-300 h-14 flex items-center justify-between px-7 border-b border-slate-200 shadow-lg'>
         <div className='flex gap-5'>
           <button><TbHistoryToggle size={34} className=''/></button>
           
