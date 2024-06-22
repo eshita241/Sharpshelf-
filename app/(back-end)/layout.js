@@ -8,7 +8,6 @@ export default function Layout
     <div className='flex'>
         <Sidebar/>
         <main className='w-full min-h-screen'>
-            <Navbar/>
             {children} 
         </main>
     </div>

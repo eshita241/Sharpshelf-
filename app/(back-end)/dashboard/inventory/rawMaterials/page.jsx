@@ -1,9 +1,11 @@
-import React from 'react';
+"use client";
+import React, {useState} from 'react';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../../../../../components/ui/collapsible"
+} from "../../../../../components/ui/collapsible";
+import { FaPlus} from "react-icons/fa6";
 import {
   Table,
   TableBody,
@@ -12,24 +14,49 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../../../../components/ui/table"
+} from "../../../../../components/ui/table";
+import Modal from '../../../../../components/dashboard/Modal'
+import Form from '../../../../../components/dashboard/Form'
 
 
 
 export default function Inventory() {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [formData, setFormData] = useState([]);
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
+  const handleFormSubmit = (data) => {
+    setFormData(prev => [...prev, data]);
+    console.log('Form submitted:', data);
+    handleCloseModal();
+  };
   return (
     <div>
-      <div>
-      <Collapsible>
+      <div className='flex justify-around p-10'>
+        <div>
+        <Collapsible>
   <CollapsibleTrigger>Raw Material</CollapsibleTrigger>
-  <CollapsibleContent>
-  Maida
+  {formData.map((data,index)=>
+  <CollapsibleContent key={index}>
+  {data.item}
   </CollapsibleContent>
-  <CollapsibleContent>
-  Sugar
-  </CollapsibleContent>
-  <CollapsibleContent>Yeast</CollapsibleContent>
+  )}
 </Collapsible>
+        </div>
+        <div>
+        <button type="button" className="flex gap-3 font-bold ms-3 text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={handleOpenModal}><FaPlus size={20} className="cursor-pointer" /> ADD ITEM
+      <Modal isVisible={isModalVisible} onClose={handleCloseModal}>
+        <Form onSubmit={handleFormSubmit} />
+      </Modal>
+      </button>
+        </div>
       </div>
       
       <Table>
@@ -45,192 +72,16 @@ export default function Inventory() {
     </TableRow>
   </TableHeader>
   <TableBody>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
+  {formData.map((data, index) => (
+    <TableRow key={index}>
+      <TableCell className="font-medium">{index+1}</TableCell>
+      <TableCell>{data.item}</TableCell>
+      <TableCell>{data.date}</TableCell>
+      <TableCell>{data.purchased}</TableCell>
+      <TableCell>{data.purchased}</TableCell>
       <TableCell className="text-right">$250.00</TableCell>
     </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
-    <TableRow>
-      <TableCell className="font-medium">1</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell>Credit Card</TableCell>
-            <TableCell>Credit Card</TableCell>
-
-      <TableCell className="text-right">$250.00</TableCell>
-    </TableRow>
+  ))}
   </TableBody>
 </Table>
 

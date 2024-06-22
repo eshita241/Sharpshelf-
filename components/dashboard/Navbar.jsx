@@ -1,15 +1,32 @@
-import React from 'react';
+"use client";
+import React, {useState} from 'react';
 import { TbHistoryToggle } from "react-icons/tb";
 import { IoSearch,IoSettingsOutline } from "react-icons/io5";
 import { FaPlus, FaUserGroup  } from "react-icons/fa6";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { GoChevronDown } from "react-icons/go";
 import { TfiLayoutGrid3Alt } from "react-icons/tfi";
-import  Link  from "next/link"
+import  Link  from "next/link";
+import Modal from '../dashboard/Modal'
+import Form from '../dashboard/Form';
 
 
 
 export default function Navbar() {
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
+
+  const handleFormSubmit = data => {
+    console.log('Form submitted:', data);
+    handleCloseModal();
+  };
   return (
     <div className=' z-20 bg-slate-300 h-14 flex items-center justify-between px-7 border-b border-slate-200 shadow-lg'>
         <div className='flex gap-5'>
@@ -39,7 +56,11 @@ export default function Navbar() {
         <div className='flex gap-5'>
         
         
-        <button type="button" className="ms-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><Link href="/dashboard/inventory"><FaPlus size={20} className="cursor-pointer" /></Link></button>
+        <button type="button" className="ms-3 text-black bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-3 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={handleOpenModal}><FaPlus size={20} className="cursor-pointer" />
+      <Modal isVisible={isModalVisible} onClose={handleCloseModal}>
+        <Form onSubmit={handleFormSubmit} />
+      </Modal>
+      </button>
         <button><IoMdNotificationsOutline size={25} /></button>
         <button><FaUserGroup size={24.5}/></button>
         <button><IoSettingsOutline size={25} /></button>
