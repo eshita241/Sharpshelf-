@@ -10,9 +10,8 @@ export default function Sidebar(){
     const pathname = usePathname();
     let LinkDat = [
         {name: "Home", link:"/"},
-        {name: "Inventory", link:"/dashboard/inventory"},
-        {name: "Attendance", link:"/dashboard/attendance"},
-        {name: "Production", link:"/dashboard/production"},
+        {name: "Red Cow", link:"/dashboard/productions/redcow"},
+        {name: "Modern", link:"/dashboard/productions/modern"},
     ]
     return (
             <div className='relative w-56 min-h-screen bg-slate-900 text-slate-200'>

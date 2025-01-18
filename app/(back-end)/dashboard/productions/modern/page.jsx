@@ -10,7 +10,6 @@ const Menu = () => {
     { id: 1, name: "sliced bread 200gm", batchNum:1, lastUpdated: "3 months", quantity: 0 },
   ]);
 
-  // Update quantity in the state
   const updateQuantity = (id, newQuantity) => {
     setSkus((prevSkus) =>
       prevSkus.map((sku) =>
@@ -19,7 +18,6 @@ const Menu = () => {
     );
   };
 
-  // Save changes to the database
   const handleSave = async () => {
     try {
       const response = await fetch("/api/save-skus", {
@@ -43,7 +41,7 @@ const Menu = () => {
 
   return (
     <div className="max-w-md mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Menu</h1>
+      <h1 className="text-2xl font-bold mb-6">Modern SKU list</h1>
       {skus.map((sku) => (
         <SkuCard
           key={sku.id}
